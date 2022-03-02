@@ -245,7 +245,6 @@ class DateInput extends React.PureComponent {
           readOnly={typeof readOnly === 'boolean' ? readOnly : isTouch}
           required={required}
           aria-describedby={`${screenReaderMessage && screenReaderMessageId} ${ariaDescribedBy?ariaDescribedBy:''}`}
-          aria-expanded={isFocused}
         />
 
         {withFang && (
