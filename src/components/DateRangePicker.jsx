@@ -430,8 +430,10 @@ class DateRangePicker extends React.PureComponent {
       enableOutsideDays,
       focusedInput,
       startDate,
+      startDateId,
       startDateOffset,
       endDate,
+      endDateId,
       endDateOffset,
       minDate,
       maxDate,
@@ -484,6 +486,7 @@ class DateRangePicker extends React.PureComponent {
     return (
       <div
         key="day-picker"
+        id={`${startDateId}-${endDateId}-picker`}
         ref={this.setDayPickerContainerRef}
         {...css(
           styles.DateRangePicker_picker,
