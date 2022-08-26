@@ -178,6 +178,7 @@ function SingleDatePickerInput({
 
       <DateInput
         id={id}
+        pickerId={`${id}-picker`}
         placeholder={placeholder}
         ariaLabel={ariaLabel}
         autoComplete={autoComplete}

@@ -401,6 +401,7 @@ class SingleDatePicker extends React.PureComponent {
       date,
       minDate,
       maxDate,
+      id,
       onFocusChange,
       focused,
       enableOutsideDays,
@@ -460,6 +461,7 @@ class SingleDatePicker extends React.PureComponent {
     return (
       <div
         ref={this.setDayPickerContainerRef}
+        id={`${id}-picker`}
         {...css(
           styles.SingleDatePicker_picker,
           anchorDirection === ANCHOR_LEFT && styles.SingleDatePicker_picker__directionLeft,

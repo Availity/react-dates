@@ -26,6 +26,7 @@ const FANG_STROKE_BOTTOM = `M0,0 ${FANG_WIDTH_PX / 2},${FANG_HEIGHT_PX} ${FANG_W
 const propTypes = forbidExtraProps({
   ...withStylesPropTypes,
   id: PropTypes.string.isRequired,
+  pickerId: PropTypes.string.isRequired,
   placeholder: PropTypes.string,
   displayValue: PropTypes.string,
   ariaDescribedBy: PropTypes.string,
@@ -60,6 +61,7 @@ const defaultProps = {
   placeholder: 'Select Date',
   displayValue: '',
   ariaLabel: undefined,
+  ariaDescribedBy: '',
   autoComplete: 'off',
   titleText: undefined,
   screenReaderMessage: '',
@@ -178,6 +180,7 @@ class DateInput extends React.PureComponent {
     } = this.state;
     const {
       id,
+      pickerId,
       placeholder,
       ariaDescribedBy,
       ariaLabel,
@@ -232,6 +235,7 @@ class DateInput extends React.PureComponent {
           aria-label={ariaLabel === undefined ? placeholder : ariaLabel}
           title={titleText}
           type="text"
+          role="combobox"
           id={id}
           name={id}
           ref={this.setInputRef}
@@ -244,8 +248,9 @@ class DateInput extends React.PureComponent {
           disabled={disabled}
           readOnly={typeof readOnly === 'boolean' ? readOnly : isTouch}
           required={required}
-          aria-describedby={`${screenReaderMessage && screenReaderMessageId} ${ariaDescribedBy?ariaDescribedBy:''}`}
+          aria-describedby={`${screenReaderMessage && screenReaderMessageId} ${ariaDescribedBy}`}
           aria-expanded={isFocused}
+          aria-controls={isFocused ? pickerId : ''}
         />
 
         {withFang && (
